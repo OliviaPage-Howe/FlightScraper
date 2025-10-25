@@ -1,4 +1,4 @@
-## FlightScraper ✈️
+## SkyScraper ✈️
 A smarter flight price tracker that **scrapes** airline data, **analyzes** dynamic pricing models, **visualizes** trends, and **predicts** the best time to buy.
 
 ### Features:
