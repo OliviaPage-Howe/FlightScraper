@@ -5,7 +5,7 @@ A smarter flight price tracker that **scrapes** airline data, **analyzes** dynam
 - 🕒 Real-time flight prices tracking
 - 🔁 Hourly updates
 - 🤖 Predictive insights using AI
-- 📩 Email reminders send to users during large price drops
+- 📩 Email reminders sent to users during large price drops
 
 ### Tech Stack:
 - **Frontend:** HTML, CSS, JavaScript
