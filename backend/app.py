@@ -1,12 +1,14 @@
 from flask import Flask, jsonify, request
 from amadeus import Client, ResponseError
 from dotenv import load_dotenv
+from flask_cors import CORS
 import os
 
 #load two variables from .env file APIKEY && SECRET
 load_dotenv()
 
 app = Flask(__name__)
+CORS(app)
 
 #create Amadeus client 
 amadeus = Client(
@@ -14,7 +16,7 @@ amadeus = Client(
     client_secret=os.getenv("AMADEUS_CLIENT_SECRET")
 )
 
-
+@app.route("/api/flights", methods=["GET"])
 def searchFlights():
     
     origin = request.args.get("origin")
@@ -34,9 +36,8 @@ def searchFlights():
             currencyCode="USD",
             max=5
         )
-        return jsonify(response.data)
-    except ResponseError as e:
-        return jsonify({"error": str(e)}), 500
+    
+    
     #Simplify flight info for frontend
         flights = []
         for offer in response.data:
