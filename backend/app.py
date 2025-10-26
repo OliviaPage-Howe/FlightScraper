@@ -16,6 +16,19 @@ amadeus = Client(
     client_secret=os.getenv("AMADEUS_CLIENT_SECRET")
 )
 
+AIRLINE_NAMES = {
+    "AA": "American Airlines",
+    "DL": "Delta Air Lines",
+    "UA": "United Airlines",
+    "NK": "Spirit Airlines",
+    "AS": "Alaska Airlines",
+    "B6": "JetBlue Airways",
+    "WN": "Southwest Airlines",
+    "F9": "Frontier Airlines",
+    "HA": "Hawaiian Airlines",
+    "VX": "Virgin America" 
+}
+
 @app.route("/api/flights", methods=["GET"])
 def searchFlights():
     
@@ -43,8 +56,11 @@ def searchFlights():
         for offer in response.data:
             itinerary = offer["itineraries"][0]
             segment = itinerary["segments"][0]
+            carrier = segment["carrierCode"]
+            airline_name = AIRLINE_NAMES.get(carrier, carrier)
+
             flights.append({
-                "airline": segment["carrierCode"],
+                "airline": airline_name,
                 "departure": segment["departure"]["at"],
                 "arrival": segment["arrival"]["at"],
                 "price": offer["price"]["total"]

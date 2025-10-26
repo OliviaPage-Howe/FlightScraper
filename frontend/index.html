@@ -17,24 +17,35 @@
       <img src="images/planeIcon.png" alt="plane icon" class="plane-icon">
     </h1>
   </div>
-  <p class="tagline">Track flights, Save Money</p>
+  <p class="tagline">Track Flights, Save Money</p>
 </header>
 
 <main>
-  <section id="search-form">
-    <input type="text" placeholder="From">
-    <input type="text" placeholder="To">
-    <input type="date">
-    <button>Track Flight</button>
-  </section>
 
-  <section id="mission">
+<section id="search-container">
+  <div id="search-form">
+    <input id="from" type="text" placeholder="From (e.g., JFK)">
+    <input id="to" type="text" placeholder="To (e.g., LAX)">
+    <input id="date" type="date">
+    <button id="trackBtn">Track Flight</button>
+  </div>
+</section>
+
+<section id="mission-section">
+  <div class="mission-box">
     <h2>Our Mission</h2>
-  </section>
+    <p>
+      At <strong>SkyScraper</strong>, our goal is to help travelers make smarter, data-driven decisions about when to buy their flights. We hypothesize that flight prices change every hour, and travelers will never see the hidden patterns behind those shifts. We aim to fix that by building a web platform that automatically tracks flight prices across multiple airlines in real time, stores hourly data, and visualizes how each price fluctuates over time. Users can click on any flight to see its full price history as an interactive trend line, helping them predict the best time to buy and save money. In the long run, we want SkyScraper to evolve into a predictive analytics tool that uses machine learning to forecast future flight trends—making the complex world of airfare pricing simple, transparent, and empowering for everyone.
+    </p>
+  </div>
 
-  <section id="image">
-  </section>
+  <div class="image-box">
+    <img src="images/clouds.png" alt="Clouds" />
+  </div>
+</section>
+
 </main>
+<script src="script.js"></script>
 </body>
 
 <footer>

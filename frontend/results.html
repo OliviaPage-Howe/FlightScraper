@@ -4,36 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@800&family=Roboto+Condensed:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>SkyScraper - Results</title>
 </head>
 
 <header>
-  <h1>SkyScraper</h1>
-  <p>Track flights, Save Money</p>
-  <a href="index.html">Home</a>
+  <div class="logo">
+    <h1 class="title">
+      <span class="sky">Sky</span><span class="scraper">Scraper</span>
+      <img src="images/planeIcon.png" alt="plane icon" class="plane-icon">
+    </h1>
+  </div>
+  <p class="tagline">Track Flights, Save Money</p>
 </header>
 
 <main>
-  <table>
+  <table id="flights">
+
+    <thead>
     <tr>
-      <th>Airline</th><th>Price</th><th>Departure</th><th>Trend</th>
+      <th>Airline</th>
+      <th>Price</th>
+      <th>Departure</th>
+      <th>Arrival</th>
     </tr>
-    <!-- Insert dynamic rows via Flask or JS -->
+  </thead>
+
+  <tbody id="flightBody"></tbody>
   </table>
 
-  <section id="chart">
-    <canvas id="priceChart"></canvas>
-  </section>
+<section id="alerts">
+  <h3>✉️ Get Price Drop Alerts</h3>
+  <p>Enter your email to be notified of large price drops.</p>
+  <div class="alert-form">
+    <input type="email" id="emailInput" placeholder="Enter your email" />
+    <button id="notifyBtn">Remind Me!</button>
+  </div>
+</section>
 
-  <section id="alerts">
-    <h3>Large Price Drop Notification:</h3>
-    <input type="email" placeholder="Enter Your Email">
-    <button>Remind Me!</button>
-  </section>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
 </main>
 
 <footer>
   <p>© 2025 Olivia Page-Howe & Jake Maheras</p>
+  <button id="homeBtn" onclick="window.location.href='index.html'">Home</button>
 </footer>
+
 </html>
