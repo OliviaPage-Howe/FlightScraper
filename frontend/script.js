@@ -53,7 +53,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const data = await res.json();
 
         localStorage.setItem("flights", JSON.stringify(data));
+        localStorage.setItem("origin", origin);
+        localStorage.setItem("destination", destination);
+        localStorage.setItem("date", date);
         window.location.href = "results.html";
+
       } catch (error) {
         console.error("Error fetching flight data:", error);
         alert("Unable to fetch flights. Please try again later.");
@@ -62,15 +66,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Results page render
-  if (flightsTable && localStorage.getItem("flights")) {
-    try {
-      const flights = JSON.parse(localStorage.getItem("flights"));
-      renderTable(flights);
-    } catch (e) {
-      console.error("Failed to load flight data:", e);
-      if (tbody) {
-        tbody.innerHTML = `<tr><td colspan="4">Could not load results.</td></tr>`;
-      }
+if (flightsTable && localStorage.getItem("flights")) {
+  try {
+    const flights = JSON.parse(localStorage.getItem("flights"));
+    renderTable(flights);
+    const summaryRoute = document.getElementById("summaryRoute");
+    const summaryDate = document.getElementById("summaryDate");
+
+    if (summaryRoute && summaryDate) {
+      summaryRoute.innerText =
+        `${localStorage.getItem("origin")} ➜ ${localStorage.getItem("destination")}`;
+      summaryDate.innerText = localStorage.getItem("date");
+    } 
+    
+  } catch (e) { 
+    console.error("Failed to load flight data:", e);
+    if (tbody) {
+      tbody.innerHTML = `<tr><td colspan="4">Could not load results.</td></tr>`;
     }
   }
+}
 });

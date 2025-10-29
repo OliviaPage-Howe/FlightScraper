@@ -212,6 +212,23 @@ header .tagline {
   }
 }
 
+#searchSummary {
+  background: #2A4494;
+  padding: 12px 16px;
+  width: 25%;
+  margin: 2rem 0 20px 2rem;
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+#searchSummary p {
+  display: inline-block;
+  margin: 0 18px 0 0;
+}
+
 table {
   width: 45%;
   margin: 2rem 0 2rem 2rem;
